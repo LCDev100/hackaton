@@ -20,6 +20,7 @@ function haltOnTimedout(req, res, next){
 }
 
 app.use('/sabi/', require('./routes/api.sabi.routes'));
+app.use('/sabi/nickname', require('./routes/nickname.routes'));
 app.get('/', async (req, res) => {      
     res.status(200).json({
         "message": "Sabi ready"
