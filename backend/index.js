@@ -26,6 +26,9 @@ app.get('/', async (req, res) => {
     });
 });
 
+const connectToDatabase = require('./db');
+connectToDatabase();
+
 app.listen(app.get('port'), () => {
     console.log(`server on port ${app.get('port')}`);
 });
