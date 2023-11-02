@@ -13,13 +13,19 @@
     src: url('../TTF/BiNeoIndustrial-Light.ttf') format('truetype'); 
 }
 
+.message {
+    margin: 20px 0px;
+    font-size: 12px;
+}
+
 body {
     display: grid;
     height: 100vh;
     margin: 0;
     padding: 0;
     color: #0C1D32;
-    background: rgba(81, 177, 203, 0.7);
+    background: #84C8DA;
+    overflow:hidden;
 }
 .opciones, .temas, .chat {
     padding: 10px;
@@ -41,6 +47,8 @@ body {
 }
 .temas{
     font-family: 'neoninsdustrial-light';
+    border-left: 2px solid #51B1CB;
+    border-right: 2px solid #51B1CB;
 }
 .temas-title{
     font-family: 'neoninsdustrial-bold';
@@ -58,6 +66,7 @@ body {
 .chat {
     font-family: 'neonindustrial-regular';
     padding: 2.5em 5em 2em 5em;
+    overflow-y: auto;
 }
 .container-cards {
     display: flex;
@@ -72,7 +81,7 @@ body {
 .card {
     margin: 0 5%;
     flex-basis: calc(50% - 10px); 
-    border: 1px solid blue;
+    border: 1px solid #51B1CB;;
     font-size: 10px;
     text-align: center;
     display: flex;
