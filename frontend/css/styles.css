@@ -19,12 +19,10 @@ body {
     margin: 0;
     padding: 0;
     color: #0C1D32;
-    background: #51B1CB;
-    opacity: 90%;
+    background: rgba(81, 177, 203, 0.7);
 }
 .opciones, .temas, .chat {
     padding: 10px;
-    border: 1px solid #ccc;
     font-family: 'neoninsdustrial-light';
     font-size: small;
 }
@@ -58,7 +56,6 @@ body {
     margin: 0 5%;
 }
 .chat {
-    background: #f0f0f0;
     font-family: 'neonindustrial-regular';
     padding: 2.5em 5em 2em 5em;
 }
