@@ -1,16 +1,123 @@
+@font-face {
+    font-family: 'neonindustrial-regular';
+    src: url('../TTF/BiNeoIndustrial-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'neoninsdustrial-bold';
+    src: url('../TTF/BiNeoIndustrial-Bold.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'neoninsdustrial-light';
+    src: url('../TTF/BiNeoIndustrial-Light.ttf') format('truetype'); 
+}
+
 body {
     display: grid;
-    grid-template-columns: 20% 30% 50%;
     height: 100vh;
     margin: 0;
     padding: 0;
+    color: #0C1D32;
+    background: #51B1CB;
+    opacity: 90%;
 }
-
 .opciones, .temas, .chat {
     padding: 10px;
     border: 1px solid #ccc;
+    font-family: 'neoninsdustrial-light';
+    font-size: small;
+}
+.opt-menu{
+    text-align: center;
+    margin-top: 1em;
+}
+.opt-menu:first-child{
+    margin-top: 2em;
+}
+.opt-menu > svg{
+    fill: #51B1CB;
+}
+.menu {
+    font-size: 8px;
+}
+.temas{
+    font-family: 'neoninsdustrial-light';
+}
+.temas-title{
+    font-family: 'neoninsdustrial-bold';
+    font-size: 22px;
+    margin-top: 1em;
+}
+.temas-desc{
+    font-size: 11px;
+    margin-top: 0.5em;
+    margin-bottom: 1.2em;
+}
+.temas-row{
+    margin: 0 5%;
+}
+.chat {
+    background: #f0f0f0;
+    font-family: 'neonindustrial-regular';
+    padding: 2.5em 5em 2em 5em;
+}
+.container-cards {
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    height: 24vh;
+}
+.card {
+    margin: 0 5%;
+    flex-basis: calc(50% - 10px); 
+    border: 1px solid blue;
+    font-size: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-between; 
+}
+.img-card {
+    width: 100%;
+    height: calc(100% - 20px);
+    object-fit: cover;
+}
+.card-title {
+    margin: 0.5em 0;
 }
 
-.opciones {
-    background: #f0f0f0;
+/* Media Query para pantallas de laptop */
+@media (min-width: 768px) {
+    body {
+        grid-template-columns: 5% 35% 60%;
+    }
+}
+
+/* Media Query para pantallas de tablet y dispositivos móviles */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 100%;
+    }
+
+    .opciones, .temas, .chat {
+        width: 100%;
+    }
+
+    .container-cards {
+        margin-top: 10px; /* Espaciado entre filas en dispositivos móviles */
+    }
+
+    .row {
+        flex-direction: column; /* En dispositivos móviles, apila las tarjetas verticalmente */
+    }
+
+    .card {
+        flex-basis: 100%; /* Tarjetas ocupan todo el ancho en dispositivos móviles */
+    }
 }
