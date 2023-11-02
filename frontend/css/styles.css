@@ -1,0 +1,16 @@
+body {
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.opciones, .temas, .chat {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.opciones {
+    background: #f0f0f0;
+}
