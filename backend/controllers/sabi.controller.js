@@ -1,13 +1,13 @@
-const apiSabiController = {};
+const sabiController = {};
 const axios = require('axios');
 
-apiSabiController.get = async (req, res) => {      
+sabiController.get = async (req, res) => {      
     res.status(200).json({
         "message": "Hello, I'm Sabi"
     });
 };
 
-apiSabiController.post = async (req, res) => {
+sabiController.post = async (req, res) => {
     const data = {
         role: req.body.role,
         content: req.body.content
@@ -23,4 +23,4 @@ apiSabiController.post = async (req, res) => {
         });
 };
 
-module.exports = apiSabiController;
+module.exports = sabiController;
