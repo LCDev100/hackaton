@@ -14,7 +14,7 @@
             <h1 class="menu">Menú</h1>
         </div>
         <div class="opt-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
             <h1 class="menu">Perfil</h1>
         </div>
     </section>
@@ -26,64 +26,74 @@
         <div class="container-cards">
             <div class="row">
                 <div class="card">
-                    <img src="../images/topic-01.jpg" alt="Ansiedad" class="img-card">
+                    <img src="../images/topics/topic-05.jpg" alt="Ansiedad" class="img-card">
                     <div class="card-title">
-                        <p>Me siento ansioso/a</p>
+                        <p>Desahogate<br>&#x0020;&zwnj;</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="../images/topic-02.jpg" alt="Plan de Carrera" class="img-card">
+                    <img src="../images/topics/topic-04.jpg" alt="Ansiedad" class="img-card">
                     <div class="card-title">
-                        <p>Me siento ansioso/a</p>
+                        <p>Practica una conversación<br>&#x0020;&zwnj;</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="card">
-                    <img src="../images/topic-03.jpg" alt="Ansiedad" class="img-card">
+                    <img src="../images/topics/topic-03.jpg" alt="Toma de Decisión" class="img-card">
                     <div class="card-title">
-                        <p>Me siento ansioso/a</p>
+                        <p>Pro y Contras de una decisión</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="../images/topic-04.jpg" alt="Plan de Carrera" class="img-card">
-                    <p>Plan de carrera</p>
+                    <img src="../images/topics/topic-01.jpg" alt="Ansiedad" class="img-card">
+                    <p><br>Me siento ansioso/a<br>&#x0020;&zwnj;</p>
                 </div>
             </div>
             <div class="row">
                 <div class="card">
-                    <img src="../images/topic-01.jpg" alt="Ansiedad" class="img-card">
+                    <img src="../images/topics/topic-02.jpg" alt="Ansiedad" class="img-card">
                     <div class="card-title">
-                        <p>Me siento ansioso/a</p>
+                        <p>Plan de Carrera<br>&#x0020;&zwnj;</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="../images/topic-02.jpg" alt="Plan de Carrera" class="img-card">
+                    <img src="../images/topics/topic-06.jpg" alt="Plan de Carrera" class="img-card">
                     <div class="card-title">
-                        <p>Me siento ansioso/a</p>
+                        <p>Volutariado<br>&#x0020;&zwnj;</p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
-    <section>
-        <div class="chat">
+    <section class="chat">
+        <div class="chat-messages">
             <div class="message message-bot">
-                <span id="message-bot">Hola soy SABI tu IA personal, estoy muy contenta de poder platicar contigo. Mi meta es ayudarte, darte los consejos que necesites y guardar tu identdad en todo moemnto para que te sientas en la confienza de contarme todo lo que sucede en tu entorno laboral o personal.</span>
+                <span name="assitantMessage">Hola soy SABI tu IA personal, estoy muy contenta de poder platicar contigo. Mi meta es ayudarte, darte los consejos que necesites y guardar tu identdad en todo moemnto para que te sientas en la confienza de contarme todo lo que sucede en tu entorno laboral o personal.</span>
             </div>
             <div class="message message-bot">
-                <span id="message-bot">¿Cómo quisieras que te llame?</span>
+                <span name="assitantMessage">¿Cómo quisieras que te llame?</span>
             </div>
             <div class="message-user">
-                <span id="message-bot"></span>
+                <span name="userMessage">Lucrecio</span>
             </div>
         </div>
-        <form>
-            <div>
-                <div class="txtMessage"></div>
-                <div><input type="submit" value=""></div>
-            </div>
-        </form>
+        <div class="write-messages">
+            <form class="chatForm" name="chatForm" id="chatForm" action="#">
+                <div class="chat-input-field">
+                    <input type="text" class="message-input" placeholder="¿Cómo va tu día?">
+                </div>
+                <div>
+                    <button type="submit" class="send-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
+                            <path d="M2 21l21-9-21-9 1 7 5 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            <p>Recuerda que toda la información que me des la guardare de forma confidencial.</p>
+        </div>
     </section>
 </body>
 </html>
