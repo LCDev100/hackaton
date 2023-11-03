@@ -6,6 +6,7 @@
     <title>SABI</title>
     <link rel="stylesheet" href="../css/_reset.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <section class="opciones">
@@ -68,32 +69,75 @@
         </div>
     </section>
     <section class="chat">
-        <div class="chat-messages">
-            <div class="message message-bot">
+        <div class="chat-messages" id="chat-messages">
+            <div class="message-bot" id="message-bot" name="message-bot">
                 <span name="assitantMessage">Hola soy SABI tu IA personal, estoy muy contenta de poder platicar contigo. Mi meta es ayudarte, darte los consejos que necesites y guardar tu identdad en todo moemnto para que te sientas en la confienza de contarme todo lo que sucede en tu entorno laboral o personal.</span>
             </div>
-            <div class="message message-bot">
+            <div class="message-bot">
                 <span name="assitantMessage">¿Cómo quisieras que te llame?</span>
             </div>
-            <div class="message-user">
-                <span name="userMessage">Lucrecio</span>
+            <div class="message-user" name="message-user" id="message-user">
+                <span name="userMessage" class="span-m">Lucrecio</span>
+            </div>
+            <div class="message-bot">
+                <span name="assitantMessage">Mucho gusto Lucrecio dime ¿Cómo te puedo ayudar?</span>
             </div>
         </div>
         <div class="write-messages">
-            <form class="chatForm" name="chatForm" id="chatForm" action="#">
+            <div class="chatForm" name="chatForm" id="chatForm" >
                 <div class="chat-input-field">
-                    <input type="text" class="message-input" placeholder="¿Cómo va tu día?">
+                    <input type="text" id="messageInput" name="messageInput" class="message-input" placeholder="¿Cómo va tu día?">
                 </div>
                 <div>
-                    <button type="submit" class="send-button">
+                    <button type="button" class="send-button" id="sendMessage" name="sendMessage">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
                             <path d="M2 21l21-9-21-9 1 7 5 2z"/>
                         </svg>
                     </button>
                 </div>
-            </form>
+            </div>
             <p>Recuerda que toda la información que me des la guardare de forma confidencial.</p>
         </div>
     </section>
+    <script>
+        document.getElementById("sendMessage").addEventListener("click", function () {
+        const messageInput = document.getElementById("messageInput").value;
+        const rol = 'user';
+        const url = "https://e904-181-209-186-169.ngrok-free.app/sabi/consulta";
+        const roleAssitant = '';
+        const responseAssitant = '';
+        const data = {
+            role: rol,
+            content: messageInput,
+            nickname: 'Lucrecio',
+            tema: ''
+        }
+        console.log(data);
+        const element = document.getElementById("chat-messages");
+        element.innerHTML += '<br><div class="message-user" name="message-user" id="message-user"><span name="userMessage" class="span-m">'+messageInput+'</span></div>'
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then((response) => {
+            if (response.ok) {
+                return response.text();
+            } 
+            })
+            .then(data => {
+                respuesta = JSON.parse(data);
+                element.innerHTML += '<br><div class="message-bot message" id="message-bot" name="message-bot"><span name="assitantMessage">'+respuesta.response+'</span></div>';
+                console.log(respuesta.role);
+            })
+            .catch((error) => {
+                console.error("Error de red:", error);
+            });
+        document.getElementById("messageInput").value = "";
+        });
+    </script>
 </body>
 </html>

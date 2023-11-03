@@ -1,0 +1,1 @@
+const Document.getElement.byId = 'sendMessage';
