@@ -1,18 +1,12 @@
 const nickNameController = {};
-const nickName = require('../models/nickname');
-
-nickNameController.get = async (req, res) => {      
-    res.status(200).json({
-        "message": "Hello, I'm Sabi"
-    });
-};
+const nickNameModel = require('../models/nickname');
 
 nickNameController.registrar = async (req, res) => {      
     try {
         const nicknameNuevo = req.body.nickname;
-        var foundNickname = await nickName.findOne({nickname: nicknameNuevo})
+        var foundNickname = await nickNameModel.findOne({nickname: nicknameNuevo})
         if(foundNickname==null){
-            const newNickname = new nickName({
+            const newNickname = new nickNameModel({
             nickname: nicknameNuevo
             })
             const savedNickname = await newNickname.save()
@@ -22,11 +16,11 @@ nickNameController.registrar = async (req, res) => {
             });
         }else{
             // Recomendación de nickname
-            const horaActual = (new Date()).toLocaleTimeString().replace(/:/g, '');
-            console.log((new Date()).toLocaleTimeString());
+            const fechaYHoraActual = (new Date()).toLocaleTimeString().replace(/:/g, '');
+            // console.log((new Date()).toLocaleTimeString());
             var sugerencia = nicknameNuevo + fechaYHoraActual;
             while(foundNickname!=null){
-                foundNickname = await nickName.findOne({nickname: sugerencia})
+                foundNickname = await nickNameModel.findOne({nickname: sugerencia})
                 if(foundNickname!=null){
                     sugerencia = sugerencia + "1";
                 }
@@ -45,7 +39,7 @@ nickNameController.registrar = async (req, res) => {
 nickNameController.buscar = async(req, res) =>{
     try {
         const nickname = req.body.nickname;
-        var foundNickname = await nickName.findOne({nickname: nickname})
+        var foundNickname = await nickNameModel.findOne({nickname: nickname})
         if(foundNickname!=null){
             res.status(200).json({ 
                 "message": "Nickname encontrado",
